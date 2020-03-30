@@ -8,9 +8,9 @@ pipeline {
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
-            }
-            withAWS(credentials:'aws-static') {
-                s3Upload(file:'index.html', bucket:'lotfy-bucket', path:'index.html')
+                withAWS(credentials:'aws-static') {
+                    s3Upload(file:'index.html', bucket:'lotfy-bucket', path:'index.html')
+                }
             }
         }
     }
