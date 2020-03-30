@@ -8,6 +8,7 @@ pipeline {
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
+                tidy -q -e *.html
                 withAWS(region:'eu-central-1',credentials:'aws-static') {
                     s3Upload(file:'index.html', bucket:'lotfy-bucket', path:'index.html')
                 }
